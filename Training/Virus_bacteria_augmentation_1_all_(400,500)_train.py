@@ -15,8 +15,8 @@ print(
     np.shape(y_test)
 )
 
-tm = TrainModule(ckpt_path=CHECKPOINT_PATH,
-                 model_save_path=MODEL_PATH,
+tm = TrainModule(ckpt_path="ckpt/Virus_bacteria_augmentation_1_all_(400,500)_train.ckpt",
+                 model_save_path="model/Virus_bacteria_augmentation_1_all_(400,500)_train.h5",
                  input_shape=np.shape(x_train)[1:],
                  result_file_name="Virus_bacteria_augmentation_1_all_(400, 500)_training_result"
                  )
