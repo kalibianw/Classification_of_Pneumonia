@@ -1,0 +1,9 @@
+Index,X_ray_image_name,Label,Dataset_type,Label_2_Virus_category,Label_1_Virus_category,,Image_Count,,percent,
+0,,Normal,TRAIN or TEST,,,,1576,,26.66666667,
+1,,Pnemonia,,ARDS,Stress-Smoking,,2,,0.033840948,
+2,,Pnemonia,,,Virus,,1493,,25.26226734,26.31133672
+3,,Pnemonia,,COVID-19,Virus,,58,,0.981387479,
+4,,Pnemonia,,SARS,Virus,,4,,0.067681895,
+5,,Pnemonia,,,bacteria,,2772,,46.9035533,46.98815567
+6,,Pnemonia,,Streptococcus,bacteria,,5,,0.084602369,
+,,,,,,,5910,,,
