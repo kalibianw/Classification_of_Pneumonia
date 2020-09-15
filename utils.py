@@ -23,7 +23,7 @@ class DataModule:
 
         for row in csv_reader:
             if row[3] == "TRAIN":
-                img_path = "C:/Users/admin/Documents/AI/data/Coronahack-Chest-XRay-Dataset/Coronahack-Chest-XRay-Dataset/train/" + \
+                img_path = "dataset/Coronahack-Chest-XRay-Dataset/Coronahack-Chest-XRay-Dataset/train/" + \
                            row[1]
                 if os.path.exists(img_path) is False:
                     continue
@@ -35,7 +35,7 @@ class DataModule:
                             label.append(i)
 
             elif row[3] == "TEST":
-                img_path = "C:/Users/admin/Documents/AI/data/Coronahack-Chest-XRay-Dataset/Coronahack-Chest-XRay-Dataset/test/" + \
+                img_path = "dataset/Coronahack-Chest-XRay-Dataset/Coronahack-Chest-XRay-Dataset/test/" + \
                            row[1]
                 if os.path.exists(img_path) is False:
                     continue
@@ -113,35 +113,41 @@ class TrainModule:
             layers.InputLayer(input_shape=self.input_shape),
             layers.Conv2D(64, kernel_size=(3, 3), padding="same", activation=activations.relu,
                           kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.MaxPooling2D(padding="same"),
             layers.Conv2D(128, kernel_size=(3, 3), padding="same", activation=activations.relu,
                           kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.MaxPooling2D(padding="same"),
-            layers.Dropout(rate=0.5),
             layers.Conv2D(128, kernel_size=(3, 3), padding="same", activation=activations.relu,
                           kernel_initializer="he_normal"),
+            layers.Dropout(rate=0.5),
             layers.MaxPooling2D(padding="same"),
             layers.Conv2D(256, kernel_size=(3, 3), padding="same", activation=activations.relu,
                           kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.MaxPooling2D(padding="same"),
-            layers.Dropout(rate=0.5),
             layers.Conv2D(256, kernel_size=(3, 3), padding="same", activation=activations.relu,
                           kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.MaxPooling2D(padding="same"),
-            layers.Dropout(rate=0.5),
             layers.Conv2D(512, kernel_size=(3, 3), padding="same", activation=activations.relu,
                           kernel_initializer="he_normal"),
             layers.MaxPooling2D(padding="same"),
+            layers.Dropout(rate=0.5),
 
             layers.Flatten(),
 
             layers.Dense(512, activation=activations.relu, kernel_initializer="he_normal"),
-            layers.Dropout(rate=0.5),
+            layers.BatchNormalization(),
             layers.Dense(256, activation=activations.relu, kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.Dropout(rate=0.5),
             layers.Dense(128, activation=activations.relu, kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.Dropout(rate=0.5),
             layers.Dense(64, activation=activations.relu, kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.Dense(3, activation=activations.softmax)
         ])
 
@@ -158,35 +164,41 @@ class TrainModule:
             layers.InputLayer(input_shape=self.input_shape),
             layers.Conv2D(64, kernel_size=(3, 3), padding="same", activation=activations.relu,
                           kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.MaxPooling2D(padding="same"),
             layers.Conv2D(128, kernel_size=(3, 3), padding="same", activation=activations.relu,
                           kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.MaxPooling2D(padding="same"),
-            layers.Dropout(rate=0.5),
             layers.Conv2D(128, kernel_size=(3, 3), padding="same", activation=activations.relu,
                           kernel_initializer="he_normal"),
+            layers.Dropout(rate=0.5),
             layers.MaxPooling2D(padding="same"),
             layers.Conv2D(256, kernel_size=(3, 3), padding="same", activation=activations.relu,
                           kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.MaxPooling2D(padding="same"),
-            layers.Dropout(rate=0.5),
             layers.Conv2D(256, kernel_size=(3, 3), padding="same", activation=activations.relu,
                           kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.MaxPooling2D(padding="same"),
-            layers.Dropout(rate=0.5),
             layers.Conv2D(512, kernel_size=(3, 3), padding="same", activation=activations.relu,
                           kernel_initializer="he_normal"),
             layers.MaxPooling2D(padding="same"),
+            layers.Dropout(rate=0.5),
 
             layers.Flatten(),
 
             layers.Dense(512, activation=activations.relu, kernel_initializer="he_normal"),
-            layers.Dropout(rate=0.5),
+            layers.BatchNormalization(),
             layers.Dense(256, activation=activations.relu, kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.Dropout(rate=0.5),
             layers.Dense(128, activation=activations.relu, kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.Dropout(rate=0.5),
             layers.Dense(64, activation=activations.relu, kernel_initializer="he_normal"),
+            layers.BatchNormalization(),
             layers.Dense(2, activation=activations.softmax)
         ])
 
