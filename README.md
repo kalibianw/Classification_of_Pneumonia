@@ -2,7 +2,7 @@
 #### https://github.com/kalibianw/Classification_of_Pneumonia
 ### README Index
 1. Dataset source
-2. How do I do it?
+2. How can I run it?
 - - - -
 #### 1. Dataset source
 https://www.kaggle.com/praveengovi/coronahack-chest-xraydataset?select=Coronahack-Chest-XRay-Dataset
